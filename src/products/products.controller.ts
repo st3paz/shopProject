@@ -17,13 +17,13 @@ export class ProductsController {
     return this.productsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: number): Promise<Product> {
-    return this.productsService.findOne(id);
+  @Get(':productId')
+  findOne(@Param('productId') productId: number): Promise<Product> {
+    return this.productsService.findOne(productId);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: number): Promise<void> {
-    return this.productsService.remove(id);
+  @Delete(':productId')
+  remove(@Param('productId') productId: number): Promise<void> {
+    return this.productsService.remove(productId);
   }
 }
