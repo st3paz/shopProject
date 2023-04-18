@@ -27,7 +27,7 @@ export class ProductsService {
     return this.productsRepository.save(product);
   }
 
-  async remove(productId: number) {
-    await this.productsRepository.delete(productId);
+  async remove(id: number) {
+    await this.productsRepository.delete(id);
   }
 }
