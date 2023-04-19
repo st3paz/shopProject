@@ -15,8 +15,8 @@ export class ProductsService {
     return this.productsRepository.find();
   }
 
-  findOne(productId: number): Promise<Product | null> {
-    return this.productsRepository.findOneBy({ productId });
+  findOne(product_id: number): Promise<Product | null> {
+    return this.productsRepository.findOneBy({ product_id });
   }
 
   create(createUserDto: CreateProductDto) {
@@ -30,7 +30,7 @@ export class ProductsService {
     return this.productsRepository.save(product);
   }
 
-  async remove(productId: number) {
-    await this.productsRepository.delete(productId);
+  async remove(product_id: number) {
+    await this.productsRepository.delete(product_id);
   }
 }

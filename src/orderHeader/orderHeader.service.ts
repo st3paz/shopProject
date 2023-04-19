@@ -15,17 +15,17 @@ export class OrderHeaderService {
     return this.orderHeaderRepository.find();
   }
 
-  findOne(orderHeaderId: number): Promise<OrderHeader | null> {
-    return this.orderHeaderRepository.findOneBy({ orderHeaderId });
+  findOne(order_header_id: number): Promise<OrderHeader | null> {
+    return this.orderHeaderRepository.findOneBy({ order_header_id });
   }
 
   create(createOrderHeaderDto: CreateOrderHeaderDto) {
     const orderHeader = new OrderHeader();
-    orderHeader.orderDate = createOrderHeaderDto.orderDate;
+    orderHeader.user_id = createOrderHeaderDto.user_id;
     return this.orderHeaderRepository.save(orderHeader);
   }
 
-  async remove(orderHeaderId: number) {
-    await this.orderHeaderRepository.delete(orderHeaderId);
+  async remove(order_header_id: number) {
+    await this.orderHeaderRepository.delete(order_header_id);
   }
 }

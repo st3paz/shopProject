@@ -1,16 +1,23 @@
-import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  BeforeInsert,
+  OneToMany,
+} from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { OrderHeader } from 'src/orderHeader/orderHeader.entity';
 
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn()
-  userId: number;
+  user_id: number;
 
   @Column()
-  firstName: string;
+  first_name: string;
 
   @Column()
-  lastName: string;
+  last_name: string;
 
   @Column()
   email: string;
@@ -21,4 +28,7 @@ export class Users {
   @BeforeInsert() async hashPassword() {
     this.password = await bcrypt.hash(this.password, 10);
   }
+
+  @OneToMany((type) => OrderHeader, (orderHeader) => orderHeader.user_id)
+  orderHeader: OrderHeader[];
 }

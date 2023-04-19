@@ -1,9 +1,10 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { OrderDetail } from 'src/orderDetail/orderDetail.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
 export class Product {
   @PrimaryGeneratedColumn()
-  productId: number;
+  product_id: number;
 
   @Column()
   name: string;
@@ -22,4 +23,7 @@ export class Product {
 
   @Column()
   price: number;
+
+  @OneToMany((type) => OrderDetail, (orderDetail) => orderDetail.product_id)
+  orderDetail: OrderDetail[];
 }

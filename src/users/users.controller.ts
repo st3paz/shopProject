@@ -17,13 +17,13 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get('userId:id')
-  findOne(@Param('userId') userId: number): Promise<Users> {
-    return this.usersService.findOne(userId);
+  @Get('user_id:id')
+  findOne(@Param('user_id') user_id: number): Promise<Users> {
+    return this.usersService.findOne(user_id);
   }
 
-  @Delete(':userId:id')
-  remove(@Param('userId') userId: number): Promise<void> {
-    return this.usersService.remove(userId);
+  @Delete(':user_id:id')
+  remove(@Param('user_id') user_id: number): Promise<void> {
+    return this.usersService.remove(user_id);
   }
 }

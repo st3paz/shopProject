@@ -15,18 +15,20 @@ export class OrderDetailService {
     return this.orderDetailRepository.find();
   }
 
-  findOne(orderDetailId: number): Promise<OrderDetail | null> {
-    return this.orderDetailRepository.findOneBy({ orderDetailId });
+  findOne(order_detail_id: number): Promise<OrderDetail | null> {
+    return this.orderDetailRepository.findOneBy({ order_detail_id });
   }
 
   create(createOrderDetailDto: CreateOrderDetailDto) {
     const orderDetail = new OrderDetail();
     orderDetail.price = createOrderDetailDto.price;
     orderDetail.count = createOrderDetailDto.count;
+    orderDetail.product_id = createOrderDetailDto.product_id;
+    orderDetail.order_header_id = createOrderDetailDto.order_header_id;
     return this.orderDetailRepository.save(orderDetail);
   }
 
-  async remove(orderDetailId: number) {
-    await this.orderDetailRepository.delete(orderDetailId);
+  async remove(order_detail_id: number) {
+    await this.orderDetailRepository.delete(order_detail_id);
   }
 }

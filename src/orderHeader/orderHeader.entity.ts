@@ -1,12 +1,34 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { OrderDetail } from 'src/orderDetail/orderDetail.entity';
+import { Users } from 'src/users/users.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  ManyToOne,
+  JoinColumn,
+  OneToMany,
+} from 'typeorm';
 
 @Entity()
 export class OrderHeader {
   @PrimaryGeneratedColumn()
-  orderHeaderId: number;
+  order_header_id: number;
 
-  @Column()
-  orderDate: Date;
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  order_date: Date;
 
-  //many-to-one userId
+  @ManyToOne((type) => Users, (user) => user.orderHeader)
+  @JoinColumn({
+    name: 'user_id',
+  })
+  user: Users;
+
+  @Column({ nullable: false })
+  user_id: number;
+
+  @OneToMany(
+    (type) => OrderDetail,
+    (orderDetail) => orderDetail.order_header_id,
+  )
+  orderDetail: OrderDetail[];
 }

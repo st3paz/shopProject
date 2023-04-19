@@ -1,3 +1,3 @@
 export class CreateOrderHeaderDto {
-  orderDate: Date;
+  user_id: number;
 }

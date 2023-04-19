@@ -17,13 +17,15 @@ export class OrderDetailController {
     return this.orderDetailService.findAll();
   }
 
-  @Get('orderDetailId:id')
-  findOne(@Param('orderDetailId') orderDetailId: number): Promise<OrderDetail> {
-    return this.orderDetailService.findOne(orderDetailId);
+  @Get('order_detail_id:id')
+  findOne(
+    @Param('order_detail_id') order_detail_id: number,
+  ): Promise<OrderDetail> {
+    return this.orderDetailService.findOne(order_detail_id);
   }
 
-  @Delete(':orderDetailId:id')
-  remove(@Param('orderDetailId') orderDetailId: number): Promise<void> {
-    return this.orderDetailService.remove(orderDetailId);
+  @Delete(':order_detail_id:id')
+  remove(@Param('order_detail_id') order_detail_id: number): Promise<void> {
+    return this.orderDetailService.remove(order_detail_id);
   }
 }

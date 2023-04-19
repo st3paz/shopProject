@@ -14,5 +14,3 @@ async function bootstrap() {
   await app.setGlobalPrefix('/api'); //глобальный префикс для роутов контроллера
 }
 bootstrap();
-
-//test
