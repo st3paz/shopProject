@@ -22,12 +22,15 @@ export class ProductsService {
   create(createUserDto: CreateProductDto) {
     const product = new Product();
     product.name = createUserDto.name;
-    product.type = createUserDto.type;
+    product.category = createUserDto.category;
+    product.size = createUserDto.size;
+    product.condition = createUserDto.condition;
+    product.count = createUserDto.count;
     product.price = createUserDto.price;
     return this.productsRepository.save(product);
   }
 
-  async remove(id: number) {
-    await this.productsRepository.delete(id);
+  async remove(productId: number) {
+    await this.productsRepository.delete(productId);
   }
 }

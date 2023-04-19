@@ -9,7 +9,16 @@ export class Product {
   name: string;
 
   @Column()
-  type: string;
+  category: string;
+
+  @Column()
+  size: string;
+
+  @Column()
+  condition: string;
+
+  @Column()
+  count: number;
 
   @Column()
   price: number;

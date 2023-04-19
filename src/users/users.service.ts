@@ -15,20 +15,20 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  findOne(id: number): Promise<Users | null> {
-    return this.usersRepository.findOneBy({ id });
+  findOne(userId: number): Promise<Users | null> {
+    return this.usersRepository.findOneBy({ userId });
   }
 
   create(createUserDto: CreateUsersDto) {
     const users = new Users();
-    users.name = createUserDto.name;
-    users.surname = createUserDto.surname;
+    users.firstName = createUserDto.firstName;
+    users.lastName = createUserDto.lastName;
     users.email = createUserDto.email;
     users.password = createUserDto.password;
     return this.usersRepository.save(users);
   }
 
-  async remove(id: number) {
-    await this.usersRepository.delete(id);
+  async remove(userId: number) {
+    await this.usersRepository.delete(userId);
   }
 }

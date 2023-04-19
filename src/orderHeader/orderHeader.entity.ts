@@ -1,16 +1,12 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class Orders {
+export class OrderHeader {
   @PrimaryGeneratedColumn()
-  id: number;
+  orderHeaderId: number;
 
   @Column()
   orderDate: Date;
 
-  @Column()
-  userId: number;
-
-  @Column()
-  productId: number;
+  //many-to-one userId
 }

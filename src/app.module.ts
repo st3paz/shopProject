@@ -4,14 +4,17 @@ import { Product } from './products/products.entity';
 import { ProductsModule } from './products/products.module';
 import { Users } from './users/users.entity';
 import { UsersModule } from './users/users.module';
-import { Orders } from './orders/orders.entity';
-import { OrdersModule } from './orders/orders.module';
+import { OrderHeader } from './orderHeader/orderHeader.entity';
+import { OrderHeaderModule } from './orderHeader/orderHeader.module';
+import { OrderDetail } from './orderDetail/orderDetail.entity';
+import { OrderDetailModule } from './orderDetail/orderDetail.module';
 
 @Module({
   imports: [
     ProductsModule,
     UsersModule,
-    OrdersModule,
+    OrderHeaderModule,
+    OrderDetailModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
@@ -19,7 +22,7 @@ import { OrdersModule } from './orders/orders.module';
       username: 'postgres',
       password: '123',
       database: 'education',
-      entities: [Product, Users, Orders],
+      entities: [Product, Users, OrderHeader, OrderDetail],
       synchronize: true,
     }),
   ],

@@ -1,5 +1,8 @@
 export class CreateProductDto {
   name: string;
-  type: string;
+  category: string;
+  size: string;
+  condition: string;
+  count: number;
   price: number;
 }

@@ -4,13 +4,13 @@ import * as bcrypt from 'bcrypt';
 @Entity()
 export class Users {
   @PrimaryGeneratedColumn()
-  id: number;
+  userId: number;
 
   @Column()
-  name: string;
+  firstName: string;
 
   @Column()
-  surname: string;
+  lastName: string;
 
   @Column()
   email: string;
