@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, ValidationPipe } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Product } from './products/products.entity';
 import { ProductsModule } from './products/products.module';
@@ -8,6 +8,7 @@ import { OrderHeader } from './orderHeader/orderHeader.entity';
 import { OrderHeaderModule } from './orderHeader/orderHeader.module';
 import { OrderDetail } from './orderDetail/orderDetail.entity';
 import { OrderDetailModule } from './orderDetail/orderDetail.module';
+import { CreateUsersDto } from './users/create-user.dto';
 
 @Module({
   imports: [

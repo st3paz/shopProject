@@ -7,6 +7,7 @@ import {
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { OrderHeader } from 'src/orderHeader/orderHeader.entity';
+import { IsEmail } from 'class-validator';
 
 @Entity()
 export class Users {

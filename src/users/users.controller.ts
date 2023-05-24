@@ -1,5 +1,5 @@
 import { UsersService } from './users.service';
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CreateUsersDto } from './create-user.dto';
 import { Users } from './users.entity';
 
@@ -8,6 +8,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
+  @UsePipes(ValidationPipe)
   create(@Body() createUserDto: CreateUsersDto) {
     return this.usersService.create(createUserDto);
   }
