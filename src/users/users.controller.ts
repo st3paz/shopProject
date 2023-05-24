@@ -18,12 +18,12 @@ export class UsersController {
     return this.usersService.findAll();
   }
 
-  @Get('user_id:id')
+  @Get(':user_id')
   findOne(@Param('user_id') user_id: number): Promise<Users> {
     return this.usersService.findOne(user_id);
   }
 
-  @Delete(':user_id:id')
+  @Delete(':user_id')
   remove(@Param('user_id') user_id: number): Promise<void> {
     return this.usersService.remove(user_id);
   }
