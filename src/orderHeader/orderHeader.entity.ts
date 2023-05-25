@@ -17,7 +17,7 @@ export class OrderHeader {
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   order_date: Date;
 
-  @ManyToOne((type) => Users, (user) => user.orderHeader)
+  @ManyToOne((type) => Users, (user) => user.orderHeader, {onDelete: "CASCADE"})
   @JoinColumn({
     name: 'user_id',
   })

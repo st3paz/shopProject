@@ -21,7 +21,6 @@ export class OrderDetailService {
 
   create(createOrderDetailDto: CreateOrderDetailDto) {
     const orderDetail = new OrderDetail();
-    orderDetail.price = createOrderDetailDto.price;
     orderDetail.count = createOrderDetailDto.count;
     orderDetail.product_id = createOrderDetailDto.product_id;
     orderDetail.order_header_id = createOrderDetailDto.order_header_id;

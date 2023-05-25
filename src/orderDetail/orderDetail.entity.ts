@@ -13,13 +13,13 @@ export class OrderDetail {
   @PrimaryGeneratedColumn()
   order_detail_id: number;
 
-  @Column()
-  price: number;
+  @Column({ nullable: true })
+  total_sum: number;
 
   @Column()
   count: number;
 
-  @ManyToOne((type) => Product, (product) => product.orderDetail)
+  @ManyToOne((type) => Product, (product) => product.orderDetail, {onDelete: "CASCADE"})
   @JoinColumn({
     name: 'product_id',
   })
@@ -28,7 +28,7 @@ export class OrderDetail {
   @Column({ nullable: false })
   product_id: number;
 
-  @ManyToOne((type) => OrderHeader, (orderHeader) => orderHeader.orderDetail)
+  @ManyToOne((type) => OrderHeader, (orderHeader) => orderHeader.orderDetail, {onDelete: "CASCADE"})
   @JoinColumn({
     name: 'order_header_id',
   })

@@ -1,4 +1,4 @@
-import { IsNumber, IsString } from "class-validator";
+import { IsNumber, IsString, Max, Min } from "class-validator";
 
 export class CreateProductDto {
 
@@ -11,8 +11,10 @@ export class CreateProductDto {
   @IsString()
   size: string;
 
-  @IsString()
-  condition: string;
+  @IsNumber()
+  @Min(0)
+  @Max(10)
+  condition: number;
 
   @IsNumber()
   count: number;

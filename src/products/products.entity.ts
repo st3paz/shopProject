@@ -16,7 +16,7 @@ export class Product {
   size: string;
 
   @Column()
-  condition: string;
+  condition: number;
 
   @Column()
   count: number;
