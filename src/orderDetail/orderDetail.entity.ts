@@ -13,7 +13,7 @@ export class OrderDetail {
   @PrimaryGeneratedColumn()
   order_detail_id: number;
 
-  @Column({ nullable: true })
+  @Column({default: 0})
   total_sum: number;
 
   @Column()

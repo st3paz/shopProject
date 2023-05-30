@@ -31,4 +31,10 @@ export class OrderHeader {
     (orderDetail) => orderDetail.order_header_id,
   )
   orderDetail: OrderDetail[];
+
+
+
+  @Column({default: 0})
+  order_sum: number;
+  
 }
